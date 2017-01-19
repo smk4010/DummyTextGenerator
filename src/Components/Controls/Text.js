@@ -8,10 +8,16 @@ class Text extends Component{
     }
   }
 
+  onChange(e){
+      this.setState({value: e.target.value}, function(){
+        this.props.onChange(this.state.value);
+      });
+  }
+
   render(){
     return (
       <div>
-        <input type="text" />
+        <input type="number" value={this.state.value} onChange={this.onChange.bind(this)} />
       </div>
     );
   }
